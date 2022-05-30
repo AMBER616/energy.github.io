@@ -1,0 +1,1335 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>#chart-panel {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+</style>
+<title>2021年天马学生公寓能耗年报</title>
+<script src="https://lib.baomitu.com/echarts/5.2.2/echarts.min.js"></script>
+<script src=""></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/reset.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <div class="wrap">
+            <div class="logo">
+                <img src="images/Logo.png" alt="logo">
+            </div>
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="#">能耗使用</a></li>
+                    <li><a href="#">生态影响</a></li>
+                    <li><a href="#">货币影响</a></li>
+                </ul>
+            </div>
+            <div class="home">
+                <a href="#"><img src="images/user.png" alt=""></a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="chart-panel"></div>
+    <!-- <p>2021年天马学生公寓能耗年报</p> -->
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart-panel'));
+ var listData = [
+    {
+        name: '宿舍能耗',
+        value: 960,
+        draggable: true,
+        fixed: false,
+        x: 100, //myChart.getWidth() - 100  ?????
+        y: myChart.getHeight() / 2,
+        list: [
+            {
+                name: '一区一栋',
+                value: 480,
+                list: [
+                    { name: '一区一栋一层', 
+                      value: '221',
+                      list: [
+                            { name: '11-101', value: '60' },
+                            { name: '11-102', value: '60' },
+                            { name: '11-103', value: '33' },
+                            { name: '11-104', value: '60' },
+                            { name: '11-105', value: '15' },
+                            { name: '11-106', value: '80' },
+                            { name: '11-107', value: '55' },
+                            { name: '11-108', value: '54' },
+                            { name: '11-109', value: '22' },                        
+                        ] 
+                    },
+                    { name: '一区一栋二层', 
+                      value: '532',
+                      list: [
+                            { name: '11-201', value: '42' },
+                            { name: '11-202', value: '65' },
+                            { name: '11-203', value: '85' },
+                            { name: '11-204', value: '57' },
+                            { name: '11-205', value: '44' },
+                            { name: '11-206', value: '22' },
+                            { name: '11-207', value: '96' },
+                            { name: '11-208', value: '30' },
+                            { name: '11-209', value: '189' },                        
+                        ] 
+                    },
+                    { name: '一区一栋三层', 
+                      value: '743',
+                      list: [
+                            { name: '11-301', value: '51' },
+                            { name: '11-302', value: '66' },
+                            { name: '11-303', value: '83' },
+                            { name: '11-304', value: '9' },
+                            { name: '11-305', value: '66' },
+                            { name: '11-306', value: '76' },
+                            { name: '11-307', value: '197' },
+                            { name: '11-308', value: '58' },
+                            { name: '11-309', value: '19' },                        
+                        ] 
+                    },
+                    { name: '一区一栋四层', 
+                      value: '454',
+                      list: [
+                            { name: '11-401', value: '11' },
+                            { name: '11-402', value: '42' },
+                            { name: '11-403', value: '53' },
+                            { name: '11-404', value: '14' },
+                            { name: '11-405', value: '145' },
+                            { name: '11-406', value: '46' },
+                            { name: '11-407', value: '17' },
+                            { name: '11-408', value: '148' },
+                            { name: '11-409', value: '149' },                        
+                        ]                      
+                    },
+                    { name: '一区一栋五层', 
+                        value: '511',
+                        list: [
+                            { name: '11-501', value: '41' },
+                            { name: '11-502', value: '12' },
+                            { name: '11-503', value: '13' },
+                            { name: '11-504', value: '144' },
+                            { name: '11-505', value: '75' },
+                            { name: '11-506', value: '96' },
+                            { name: '11-507', value: '121' },
+                            { name: '11-508', value: '178' },
+                            { name: '11-509', value: '19' },                        
+                        ]
+                    },
+                ],
+            },
+            {
+                name: '一区二栋',
+                value: 462,
+                list: [
+                    { name: '一区二栋一层', 
+                      value: '355',
+                      list: [
+                            { name: '12-101', value: '51' },
+                            { name: '12-102', value: '152' },
+                            { name: '12-103', value: '63' },
+                            { name: '12-104', value: '84' },
+                            { name: '12-105', value: '95' },
+                            { name: '12-106', value: '36' },
+                            { name: '12-107', value: '57' },
+                            { name: '12-108', value: '58' },
+                            { name: '12-109', value: '79' },                        
+                        ] 
+                    },
+                    { name: '一区二栋二层', 
+                      value: '662',
+                      list: [
+                            { name: '12-201', value: '111' },
+                            { name: '12-202', value: '122' },
+                            { name: '12-203', value: '23' },
+                            { name: '12-204', value: '34' },
+                            { name: '12-205', value: '15' },
+                            { name: '12-206', value: '96' },
+                            { name: '12-207', value: '17' },
+                            { name: '12-208', value: '18' },
+                            { name: '12-209', value: '49' },                        
+                        ] 
+                    },
+                    { name: '一区二栋三层', 
+                      value: '663',
+                      list: [
+                            { name: '12-301', value: '15' },
+                            { name: '12-302', value: '42' },
+                            { name: '12-303', value: '13' },
+                            { name: '12-304', value: '44' },
+                            { name: '12-305', value: '65' },
+                            { name: '12-306', value: '96' },
+                            { name: '12-307', value: '77' },
+                            { name: '12-308', value: '78' },
+                            { name: '12-309', value: '179' },                        
+                        ] 
+                },
+                    { name: '一区二栋四层', 
+                      value: '854',
+                      list: [
+                            { name: '12-401', value: '61' },
+                            { name: '12-402', value: '32' },
+                            { name: '12-403', value: '73' },
+                            { name: '12-404', value: '14' },
+                            { name: '12-405', value: '45' },
+                            { name: '12-406', value: '146' },
+                            { name: '12-407', value: '17' },
+                            { name: '12-408', value: '148' },
+                            { name: '12-409', value: '149' },                        
+                        ]                      
+                    },
+                    { name: '一区二栋五层', 
+                        value: '981',
+                        list: [
+                            { name: '12-501', value: '141' },
+                            { name: '12-502', value: '142' },
+                            { name: '12-503', value: '53' },
+                            { name: '12-504', value: '74' },
+                            { name: '12-505', value: '15' },
+                            { name: '12-506', value: '66' },
+                            { name: '12-507', value: '77' },
+                            { name: '12-508', value: '88' },
+                            { name: '12-509', value: '99' },                        
+                        ]
+                    },
+                ],
+            },
+            {
+                name: '一区三栋',
+                value: 4,
+                list: [
+                    { name: '一区三栋一层', 
+                      value: '411',
+                      list: [
+                            { name: '13-101', value: '181' },
+                            { name: '13-102', value: '72' },
+                            { name: '13-103', value: '63' },
+                            { name: '13-104', value: '64' },
+                            { name: '13-105', value: '75' },
+                            { name: '13-106', value: '66' },
+                            { name: '13-107', value: '97' },
+                            { name: '13-108', value: '58' },
+                            { name: '13-109', value: '79' },                        
+                        ] 
+                    },
+                    { name: '一区三栋二层', 
+                      value: '362',
+                      list: [
+                            { name: '13-201', value: '111' },
+                            { name: '13-202', value: '12' },
+                            { name: '13-203', value: '73' },
+                            { name: '13-204', value: '54' },
+                            { name: '13-205', value: '65' },
+                            { name: '13-206', value: '46' },
+                            { name: '13-207', value: '37' },
+                            { name: '13-208', value: '58' },
+                            { name: '13-209', value: '69' },                        
+                        ] 
+                    },
+                    { name: '一区三栋三层', 
+                      value: '223',
+                      list: [
+                            { name: '13-301', value: '331' },
+                            { name: '13-302', value: '52' },
+                            { name: '13-303', value: '29' },
+                            { name: '13-304', value: '24' },
+                            { name: '13-305', value: '57' },
+                            { name: '13-306', value: '77' },
+                            { name: '13-307', value: '8' },
+                            { name: '13-308', value: '52' },
+                            { name: '13-309', value: '119' },                        
+                        ] 
+                },
+
+                    { name: '一区三栋四层', 
+                      value: '744',
+                      list: [
+                            { name: '13-401', value: '51' },
+                            { name: '13-402', value: '62' },
+                            { name: '13-403', value: '83' },
+                            { name: '13-404', value: '94' },
+                            { name: '13-405', value: '85' },
+                            { name: '13-406', value: '76' },
+                            { name: '13-407', value: '67' },
+                            { name: '13-408', value: '58' },
+                            { name: '13-409', value: '49' },                        
+                        ]                      
+                    },
+                    {
+                        name: '一区三栋五层',
+                        value: '521',
+                        list: [
+                            { name: '13-501', value: '61' },
+                            { name: '13-502', value: '32' },
+                            { name: '13-503', value: '23' },
+                            { name: '13-504', value: '74' },
+                            { name: '13-505', value: '55' },
+                            { name: '13-506', value: '46' },
+                            { name: '13-507', value: '37' },
+                            { name: '13-508', value: '98' },
+                            { name: '13-509', value: '39' },                        
+                        ]
+                    },
+                ],
+            },
+            {
+                name: '一区四栋',
+                value: 444,
+                list: [
+                    { name: '一区四栋一层', 
+                      value: '741',
+                      list: [
+                            { name: '14-101', value: '31' },
+                            { name: '14-102', value: '222' },
+                            { name: '14-103', value: '83' },
+                            { name: '14-104', value: '94' },
+                            { name: '14-105', value: '65' },
+                            { name: '14-106', value: '76' },
+                            { name: '14-107', value: '77' },
+                            { name: '14-108', value: '58' },
+                            { name: '14-109', value: '19' },                        
+                        ] 
+                    },
+                    { name: '一区四栋二层', 
+                      value: '672',
+                      list: [
+                            { name: '14-201', value: '171' },
+                            { name: '14-202', value: '72' },
+                            { name: '14-203', value: '83' },
+                            { name: '14-204', value: '88' },
+                            { name: '14-205', value: '155' },
+                            { name: '14-206', value: '46' },
+                            { name: '14-207', value: '57' },
+                            { name: '14-208', value: '38' },
+                            { name: '14-209', value: '59' },                        
+                        ] 
+                    },
+                    { name: '一区四栋三层', 
+                      value: '523',
+                      list: [
+                            { name: '14-301', value: '61' },
+                            { name: '14-302', value: '92' },
+                            { name: '14-303', value: '123' },
+                            { name: '14-304', value: '34' },
+                            { name: '14-305', value: '95' },
+                            { name: '14-306', value: '86' },
+                            { name: '14-307', value: '57' },
+                            { name: '14-308', value: '48' },
+                            { name: '14-309', value: '69' },                        
+                        ] 
+                },
+
+                    { name: '一区四栋四层', 
+                      value: '744',
+                      list: [
+                            { name: '14-401', value: '51' },
+                            { name: '14-402', value: '232' },
+                            { name: '14-403', value: '153' },
+                            { name: '14-404', value: '194' },
+                            { name: '14-405', value: '175' },
+                            { name: '14-406', value: '86' },
+                            { name: '14-407', value: '97' },
+                            { name: '14-408', value: '98' },
+                            { name: '14-409', value: '155' },                        
+                        ]                      
+                    },
+                    {
+                        name: '一区四栋五层',
+                        value: '351',
+                        list: [
+                            { name: '14-501', value: '55' },
+                            { name: '14-502', value: '152' },
+                            { name: '14-503', value: '53' },
+                            { name: '14-504', value: '154' },
+                            { name: '14-505', value: '155' },
+                            { name: '14-506', value: '126' },
+                            { name: '14-507', value: '157' },
+                            { name: '14-508', value: '128' },
+                            { name: '14-509', value: '129' },                        
+                        ]
+                    },
+                ],
+            },
+            {
+                name: '一区五栋',
+                value: 534,
+                list: [
+                    { name: '一区五栋一层', 
+                      value: '571',
+                      list: [
+                            { name: '15-101', value: '122' },
+                            { name: '15-102', value: '82' },
+                            { name: '15-103', value: '53' },
+                            { name: '15-104', value: '74' },
+                            { name: '15-105', value: '85' },
+                            { name: '15-106', value: '56' },
+                            { name: '15-107', value: '67' },
+                            { name: '15-108', value: '69' },
+                            { name: '15-109', value: '18' },                        
+                        ] 
+                    },
+                    { name: '一区五栋二层', 
+                      value: '521',
+                      list: [
+                            { name: '15-201', value: '151' },
+                            { name: '15-202', value: '32' },
+                            { name: '15-203', value: '23' },
+                            { name: '15-204', value: '64' },
+                            { name: '15-205', value: '95' },
+                            { name: '15-206', value: '96' },
+                            { name: '15-207', value: '57' },
+                            { name: '15-208', value: '58' },
+                            { name: '15-209', value: '159' },                        
+                        ] 
+                    },
+                    { name: '一区五栋三层', 
+                      value: '741',
+                      list: [
+                            { name: '15-301', value: '141' },
+                            { name: '15-302', value: '142' },
+                            { name: '15-303', value: '113' },
+                            { name: '15-304', value: '111' },
+                            { name: '15-305', value: '115' },
+                            { name: '15-306', value: '156' },
+                            { name: '15-307', value: '67' },
+                            { name: '15-308', value: '88' },
+                            { name: '15-309', value: '99' },                        
+                        ] 
+                },
+
+                    { name: '一区五栋四层', 
+                      value: '365',
+                      list: [
+                            { name: '15-401', value: '81' },
+                            { name: '15-402', value: '82' },
+                            { name: '15-403', value: '93' },
+                            { name: '15-404', value: '74' },
+                            { name: '15-405', value: '77' },
+                            { name: '15-406', value: '55' },
+                            { name: '15-407', value: '36' },
+                            { name: '15-408', value: '188' },
+                            { name: '15-409', value: '55' },                        
+                        ]                      
+                    },
+                    {
+                        name: '一区五栋五层',
+                        value: '851',
+                        list: [
+                            { name: '15-501', value: '151' },
+                            { name: '15-502', value: '15' },
+                            { name: '15-503', value: '53' },
+                            { name: '15-504', value: '54' },
+                            { name: '15-505', value: '45' },
+                            { name: '15-506', value: '36' },
+                            { name: '15-507', value: '37' },
+                            { name: '15-508', value: '38' },
+                            { name: '15-509', value: '199' },                        
+                        ]
+                    },
+                ],
+            },
+            {
+                name: '一区六栋',
+                value: 445,
+                list: [
+                    { name: '一区六栋一层', 
+                      value: '241',
+                      list: [
+                            { name: '16-101', value: '151' },
+                            { name: '16-102', value: '155' },
+                            { name: '16-103', value: '53' },
+                            { name: '16-104', value: '54' },
+                            { name: '16-105', value: '175' },
+                            { name: '16-106', value: '86' },
+                            { name: '16-107', value: '97' },
+                            { name: '16-108', value: '88' },
+                            { name: '16-109', value: '59' },                        
+                        ] 
+                    },
+                    { name: '一区六栋二层', 
+                      value: '275',
+                      list: [
+                            { name: '16-201', value: '151' },
+                            { name: '16-202', value: '52' },
+                            { name: '16-203', value: '23' },
+                            { name: '16-204', value: '124' },
+                            { name: '16-205', value: '25' },
+                            { name: '16-206', value: '26' },
+                            { name: '16-207', value: '2' },
+                            { name: '16-208', value: '28' },
+                            { name: '16-209', value: '4' },                        
+                        ] 
+                    },
+                    { name: '一区六栋三层', 
+                      value: '455',
+                      list: [
+                            { name: '16-301', value: '151' },
+                            { name: '16-302', value: '52' },
+                            { name: '16-303', value: '153' },
+                            { name: '16-304', value: '5' },
+                            { name: '16-305', value: '155' },
+                            { name: '16-306', value: '5' },
+                            { name: '16-307', value: '57' },
+                            { name: '16-308', value: '58' },
+                            { name: '16-309', value: '59' },                        
+                        ] 
+                },
+
+                    { name: '一区六栋四层', 
+                      value: '134',
+                      list: [
+                            { name: '16-401', value: '151' },
+                            { name: '16-402', value: '52' },
+                            { name: '16-403', value: '53' },
+                            { name: '16-404', value: '54' },
+                            { name: '16-405', value: '55' },
+                            { name: '16-406', value: '156' },
+                            { name: '16-407', value: '57' },
+                            { name: '16-408', value: '58' },
+                            { name: '16-409', value: '59' },                        
+                        ]                      
+                    },
+                    {
+                        name: '一区六栋五层',
+                        value: '411',
+                        list: [
+                            { name: '16-501', value: '151' },
+                            { name: '16-502', value: '152' },
+                            { name: '16-503', value: '43' },
+                            { name: '16-504', value: '64' },
+                            { name: '16-505', value: '65' },
+                            { name: '16-506', value: '66' },
+                            { name: '16-507', value: '37' },
+                            { name: '16-508', value: '138' },
+                            { name: '16-509', value: '139' },                        
+                        ]
+                    },
+                ],
+            },
+            {
+                name: '二区一栋',
+                value: 923,
+                list: [
+                    { name: '二区一栋一层', 
+                      value: '541',
+                      list: [
+                            { name: '21-101', value: '88' },
+                            { name: '21-102', value: '142' },
+                            { name: '21-103', value: '13' },
+                            { name: '21-104', value: '74' },
+                            { name: '21-105', value: '75' },
+                            { name: '21-106', value: '66' },
+                            { name: '21-107', value: '87' },
+                            { name: '21-108', value: '88' },
+                            { name: '21-109', value: '59' },                        
+                        ] 
+                    },
+                    { name: '二区一栋二层', 
+                      value: '212',
+                      list: [
+                            { name: '21-201', value: '51' },
+                            { name: '21-202', value: '52' },
+                            { name: '21-203', value: '153' },
+                            { name: '21-204', value: '54' },
+                            { name: '21-205', value: '65' },
+                            { name: '21-206', value: '66' },
+                            { name: '21-207', value: '57' },
+                            { name: '21-208', value: '58' },
+                            { name: '21-209', value: '59' },                        
+                        ] 
+                    },
+                    { name: '二区一栋三层', 
+                      value: '653',
+                      list: [
+                            { name: '21-301', value: '151' },
+                            { name: '21-302', value: '152' },
+                            { name: '21-303', value: '183' },
+                            { name: '21-304', value: '184' },
+                            { name: '21-305', value: '185' },
+                            { name: '21-306', value: '156' },
+                            { name: '21-307', value: '157' },
+                            { name: '21-308', value: '128' },
+                            { name: '21-309', value: '29' },                        
+                        ] 
+                },
+
+                    { name: '二区一栋四层', 
+                      value: '574',
+                      list: [
+                            { name: '21-401', value: '121' },
+                            { name: '21-402', value: '122' },
+                            { name: '21-403', value: '53' },
+                            { name: '21-404', value: '22' },
+                            { name: '21-405', value: '25' },
+                            { name: '21-406', value: '55' },
+                            { name: '21-407', value: '157' },
+                            { name: '21-408', value: '58' },
+                            { name: '21-409', value: '89' },                        
+                        ]                      
+                    },
+                    {
+                        name: '二区一栋五层',
+                        value: '211',
+                        list: [
+                            { name: '21-501', value: '181' },
+                            { name: '21-502', value: '52' },
+                            { name: '21-503', value: '93' },
+                            { name: '21-504', value: '94' },
+                            { name: '21-505', value: '195' },
+                            { name: '21-506', value: '96' },
+                            { name: '21-507', value: '97' },
+                            { name: '21-508', value: '188' },
+                            { name: '21-509', value: '19' },                        
+                        ]
+                    },
+                ],
+            },
+            {
+                name: '二区二栋',
+                value: 633,
+                list: [
+                    { name: '二区二栋一层', 
+                      value: '521',
+                      list: [
+                            { name: '22-101', value: '81' },
+                            { name: '22-102', value: '82' },
+                            { name: '22-103', value: '18' },
+                            { name: '22-104', value: '184' },
+                            { name: '22-105', value: '175' },
+                            { name: '22-106', value: '58' },
+                            { name: '22-107', value: '88' },
+                            { name: '22-108', value: '88' },
+                            { name: '22-109', value: '89' },                        
+                        ] 
+                    },
+                    { name: '二区二栋二层', 
+                      value: '882',
+                      list: [
+                            { name: '22-201', value: '81' },
+                            { name: '22-202', value: '82' },
+                            { name: '22-203', value: '73' },
+                            { name: '22-204', value: '74' },
+                            { name: '22-205', value: '175' },
+                            { name: '22-206', value: '176' },
+                            { name: '22-207', value: '177' },
+                            { name: '22-208', value: '148' },
+                            { name: '22-209', value: '144' },                        
+                        ] 
+                    },
+                    { name: '二区二栋三层', 
+                      value: '663',
+                      list: [
+                            { name: '22-301', value: '41' },
+                            { name: '22-302', value: '14' },
+                            { name: '22-303', value: '143' },
+                            { name: '22-304', value: '154' },
+                            { name: '22-305', value: '155' },
+                            { name: '22-306', value: '156' },
+                            { name: '22-307', value: '157' },
+                            { name: '22-308', value: '58' },
+                            { name: '22-309', value: '179' },                        
+                        ] 
+                },
+
+                    { name: '二区二栋四层', 
+                      value: '584',
+                      list: [
+                            { name: '22-401', value: '71' },
+                            { name: '22-402', value: '82' },
+                            { name: '22-403', value: '83' },
+                            { name: '22-404', value: '94' },
+                            { name: '22-405', value: '99' },
+                            { name: '22-406', value: '99' },
+                            { name: '22-407', value: '55' },
+                            { name: '22-408', value: '58' },
+                            { name: '22-409', value: '89' },                        
+                        ]                      
+                    },
+                    {
+                        name: '二区二栋五层',
+                        value: '581',
+                        list: [
+                            { name: '22-501', value: '81' },
+                            { name: '22-502', value: '82' },
+                            { name: '22-503', value: '83' },
+                            { name: '22-504', value: '54' },
+                            { name: '22-505', value: '25' },
+                            { name: '22-506', value: '26' },
+                            { name: '22-507', value: '27' },
+                            { name: '22-508', value: '188' },
+                            { name: '22-509', value: '89' },                        
+                        ]
+                    },
+                ],
+            },
+            {
+                name: '二区三栋',
+                value: 463,
+                list: [
+                    { name: '二区三栋一层', 
+                      value: '781',
+                      list: [
+                            { name: '23-101', value: '181' },
+                            { name: '23-102', value: '122' },
+                            { name: '23-103', value: '153' },
+                            { name: '23-104', value: '154' },
+                            { name: '23-105', value: '55' },
+                            { name: '23-106', value: '86' },
+                            { name: '23-107', value: '87' },
+                            { name: '23-108', value: '58' },
+                            { name: '23-109', value: '99' },                        
+                        ] 
+                    },
+                    { name: '二区三栋二层', 
+                      value: '852',
+                      list: [
+                            { name: '23-201', value: '91' },
+                            { name: '23-202', value: '192' },
+                            { name: '23-203', value: '223' },
+                            { name: '23-204', value: '84' },
+                            { name: '23-205', value: '325' },
+                            { name: '23-206', value: '326' },
+                            { name: '23-207', value: '257' },
+                            { name: '23-208', value: '458' },
+                            { name: '23-209', value: '119' },                        
+                        ] 
+                    },
+                    { name: '二区三栋三层', 
+                      value: '823',
+                      list: [
+                            { name: '23-301', value: '91' },
+                            { name: '23-302', value: '92' },
+                            { name: '23-303', value: '53' },
+                            { name: '23-304', value: '54' },
+                            { name: '23-305', value: '55' },
+                            { name: '23-306', value: '156' },
+                            { name: '23-307', value: '77' },
+                            { name: '23-308', value: '178' },
+                            { name: '23-309', value: '159' },                        
+                        ] 
+                },
+
+                    { name: '二区三栋四层', 
+                      value: '424',
+                      list: [
+                            { name: '23-401', value: '51' },
+                            { name: '23-402', value: '192' },
+                            { name: '23-403', value: '93' },
+                            { name: '23-404', value: '194' },
+                            { name: '23-405', value: '195' },
+                            { name: '23-406', value: '86' },
+                            { name: '23-407', value: '57' },
+                            { name: '23-408', value: '58' },
+                            { name: '23-409', value: '59' },                        
+                        ]                      
+                    },
+                    {
+                        name: '二区三栋五层',
+                        value: '851',
+                        list: [
+                            { name: '23-501', value: '51' },
+                            { name: '23-502', value: '52' },
+                            { name: '23-503', value: '23' },
+                            { name: '23-504', value: '24' },
+                            { name: '23-505', value: '25' },
+                            { name: '23-506', value: '26' },
+                            { name: '23-507', value: '225' },
+                            { name: '23-508', value: '58' },
+                            { name: '23-509', value: '59' },                        
+                        ]
+                    },
+                ],
+            },
+            {
+                name: '二区四栋',
+                value: 688,
+                list: [
+                    { name: '二区四栋一层', 
+                      value: '511',
+                      list: [
+                            { name: '24-101', value: '151' },
+                            { name: '24-102', value: '72' },
+                            { name: '24-103', value: '77' },
+                            { name: '24-104', value: '54' },
+                            { name: '24-105', value: '155' },
+                            { name: '24-106', value: '156' },
+                            { name: '24-107', value: '127' },
+                            { name: '24-108', value: '128' },
+                            { name: '24-109', value: '159' },                        
+                        ] 
+                    },
+                    { name: '二区四栋二层', 
+                      value: '782',
+                      list: [
+                            { name: '24-201', value: '151' },
+                            { name: '24-202', value: '155' },
+                            { name: '24-203', value: '553' },
+                            { name: '24-204', value: '557' },
+                            { name: '24-205', value: '55' },
+                            { name: '24-206', value: '156' },
+                            { name: '24-207', value: '187' },
+                            { name: '24-208', value: '88' },
+                            { name: '24-209', value: '59' },                        
+                        ] 
+                    },
+                    { name: '二区四栋三层', 
+                      value: '224',
+                      list: [
+                            { name: '24-301', value: '21' },
+                            { name: '24-302', value: '122' },
+                            { name: '24-303', value: '283' },
+                            { name: '24-304', value: '94' },
+                            { name: '24-305', value: '95' },
+                            { name: '24-306', value: '96' },
+                            { name: '24-307', value: '97' },
+                            { name: '24-308', value: '88' },
+                            { name: '24-309', value: '189' },                        
+                        ] 
+                },
+
+                    { name: '二区四栋四层', 
+                      value: '552',
+                      list: [
+                            { name: '24-401', value: '18' },
+                            { name: '24-402', value: '182' },
+                            { name: '24-403', value: '4' },
+                            { name: '24-404', value: '144' },
+                            { name: '24-405', value: '155' },
+                            { name: '24-406', value: '126' },
+                            { name: '24-407', value: '177' },
+                            { name: '24-408', value: '58' },
+                            { name: '24-409', value: '99' },                        
+                        ]                      
+                    },
+                    {
+                        name: '二区四栋五层',
+                        value: '551',
+                        list: [
+                            { name: '24-501', value: '155' },
+                            { name: '24-502', value: '85' },
+                            { name: '24-503', value: '85' },
+                            { name: '24-504', value: '25' },
+                            { name: '24-505', value: '225' },
+                            { name: '24-506', value: '96' },
+                            { name: '24-507', value: '197' },
+                            { name: '24-508', value: '158' },
+                            { name: '24-509', value: '159' },                        
+                        ]
+                    },
+                ],
+            },
+            {
+                name: '二区五栋',
+                value: 336,
+                list: [
+                    { name: '二区五栋一层', 
+                      value: '371',
+                      list: [
+                            { name: '25-101', value: '115' },
+                            { name: '25-102', value: '172' },
+                            { name: '25-103', value: '73' },
+                            { name: '25-104', value: '44' },
+                            { name: '25-105', value: '45' },
+                            { name: '25-106', value: '146' },
+                            { name: '25-107', value: '77' },
+                            { name: '25-108', value: '78' },
+                            { name: '25-109', value: '49' },                        
+                        ] 
+                    },
+                    { name: '二区五栋二层', 
+                      value: '785',
+                      list: [
+                            { name: '25-201', value: '41' },
+                            { name: '25-202', value: '82' },
+                            { name: '25-203', value: '83' },
+                            { name: '25-204', value: '84' },
+                            { name: '25-205', value: '85' },
+                            { name: '25-206', value: '186' },
+                            { name: '25-207', value: '87' },
+                            { name: '25-208', value: '88' },
+                            { name: '25-209', value: '89' },                        
+                        ] 
+                    },
+                    { name: '二区五栋三层', 
+                      value: '553',
+                      list: [
+                            { name: '25-301', value: '81' },
+                            { name: '25-302', value: '182' },
+                            { name: '25-303', value: '183' },
+                            { name: '25-304', value: '54' },
+                            { name: '25-305', value: '74' },
+                            { name: '25-306', value: '76' },
+                            { name: '25-307', value: '97' },
+                            { name: '25-308', value: '99' },
+                            { name: '25-309', value: '9' },                        
+                        ] 
+                },
+
+                    { name: '二区五栋四层', 
+                      value: '574',
+                      list: [
+                            { name: '25-401', value: '91' },
+                            { name: '25-402', value: '192' },
+                            { name: '25-403', value: '99' },
+                            { name: '25-404', value: '154' },
+                            { name: '25-405', value: '25' },
+                            { name: '25-406', value: '126' },
+                            { name: '25-407', value: '87' },
+                            { name: '25-408', value: '88' },
+                            { name: '25-409', value: '89' },                        
+                        ]                      
+                    },
+                    {
+                        name: '二区五栋五层',
+                        value: '431',
+                        list: [
+                            { name: '25-501', value: '81' },
+                            { name: '25-502', value: '182' },
+                            { name: '25-503', value: '188' },
+                            { name: '25-504', value: '158' },
+                            { name: '25-505', value: '55' },
+                            { name: '25-506', value: '556' },
+                            { name: '25-507', value: '157' },
+                            { name: '25-508', value: '158' },
+                            { name: '25-509', value: '189' },                        
+                        ]
+                    },
+                ],
+            },
+            {
+                name: '二区六栋',
+                value: 366,
+                list: [
+                    { name: '二区六栋一层', 
+                      value: '558',
+                      list: [
+                            { name: '26-101', value: '151' },
+                            { name: '26-102', value: '52' },
+                            { name: '26-103', value: '153' },
+                            { name: '26-104', value: '54' },
+                            { name: '26-105', value: '155' },
+                            { name: '26-106', value: '56' },
+                            { name: '26-107', value: '157' },
+                            { name: '26-108', value: '158' },
+                            { name: '26-109', value: '59' },                        
+                        ] 
+                    },
+                    { name: '二区六栋二层', 
+                      value: '552',
+                      list: [
+                            { name: '26-201', value: '151' },
+                            { name: '26-202', value: '155' },
+                            { name: '26-203', value: '18' },
+                            { name: '26-204', value: '84' },
+                            { name: '26-205', value: '88' },
+                            { name: '26-206', value: '86' },
+                            { name: '26-207', value: '87' },
+                            { name: '26-208', value: '88' },
+                            { name: '26-209', value: '89' },                        
+                        ] 
+                    },
+                    { name: '二区六栋三层', 
+                      value: '753',
+                      list: [
+                            { name: '26-301', value: '181' },
+                            { name: '26-302', value: '55' },
+                            { name: '26-303', value: '153' },
+                            { name: '26-304', value: '54' },
+                            { name: '26-305', value: '255' },
+                            { name: '26-306', value: '66' },
+                            { name: '26-307', value: '67' },
+                            { name: '26-308', value: '68' },
+                            { name: '26-309', value: '69' },                        
+                        ] 
+                },
+                    { name: '二区六栋四层', 
+                      value: '669',
+                      list: [
+                            { name: '26-401', value: '61' },
+                            { name: '26-402', value: '152' },
+                            { name: '26-403', value: '153' },
+                            { name: '26-404', value: '74' },
+                            { name: '26-405', value: '175' },
+                            { name: '26-406', value: '76' },
+                            { name: '26-407', value: '77' },
+                            { name: '26-408', value: '78' },
+                            { name: '26-409', value: '79' },                        
+                        ]                      
+                    },
+                    { name: '二区六栋五层', 
+                        value: '555',
+                        list: [
+                            { name: '26-501', value: '71' },
+                            { name: '26-502', value: '72' },
+                            { name: '26-503', value: '77' },
+                            { name: '26-504', value: '17' },
+                            { name: '26-505', value: '75' },
+                            { name: '26-506', value: '76' },
+                            { name: '26-507', value: '77' },
+                            { name: '26-508', value: '78' },
+                            { name: '26-509', value: '179' },                        
+                        ]
+                    },
+                ],
+            },
+        
+        ],
+    },
+];
+var listSon = listData[0].list; //除一级节点外
+var legend = []; //二级节点列表 [val]
+var categories = []; //二级节点列表 {name:val}
+var list = [];
+var links = []; // source: '源节点名称', target: '目标节点名称'
+listSon.forEach((item) => {
+    legend.push(item.name);
+    categories.push({ name: item.name });
+});
+
+handleList(JSON.parse(JSON.stringify(listData)), 0);
+handleLinks(JSON.parse(JSON.stringify(listData)), 0);
+
+//  计算list
+function handleList(arr, idx, color, category) {
+    arr.forEach((item, index) => {
+        if (item.name === null) {
+            return false;
+        }
+        // 设置节点大小
+        let symbolSize = 10;
+        // 每个节点所对应的文本标签的样式。
+        let label = null;
+        if (idx === 0) {
+            //根节点
+            symbolSize = 160;           
+            label = {
+                show: false,
+                position: 'inside',
+                rotate: 0,
+                fontSize: 21,
+                fontWeight: 'bold',
+                color: '#FFFFFF',
+            };
+        } 
+        else if (idx === 1) {
+            //一级节点
+            symbolSize = 60;
+            // symbolSize:function(arg){
+            //     console.log(arg)
+            //     return 40
+            // }
+            label = {
+                position: 'inside',
+                rotate: 0,
+                fontSize: 12,
+                distance: 0,
+                fontWeight: 'normal',
+                color: '#FFFFFF',
+            };
+        } 
+        else if (idx === 2) {
+            //二级节点
+            symbolSize = 30;
+            label = {
+                position: 'inside',
+                rotate: 0,
+                fontSize: 4,
+                distance: 0,
+                fontWeight: 'normal',
+                color: '#FFFFFF',
+            };
+        } 
+        else {
+            symbolSize = 6;
+            label = {
+
+                fontSize: 1,
+                color: '#D0C7AD',//最小节点
+                labelLayout: {
+                       hideOverlap: true
+                    },
+            };
+        }
+
+        //浮窗 前面圆颜色设置
+        if (idx === 0) {
+            //根节点
+            bgcolor =new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                        {
+                            offset: 0,
+                            color: '#FAB2FF',
+                        },
+                        {
+                            offset: 1,
+                            color: '#1904E5',
+                        },
+                    ]);
+        } 
+        else if (idx === 1){
+            bgcolor = new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                        {
+                            offset: 0,
+                            color: '#4262FE',
+                        },
+                        {
+                            offset: 1,
+                            color: '#4262FE',
+                        },
+                    ]);
+        }
+        else {
+            //一级节点
+            bgcolor = new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                        {
+                            offset: 0,
+                            color: '#5EFCE8',
+                        },
+                        {
+                            offset: 1,
+                            color: '#736EFE',
+                        },
+                    ]);
+        }
+        let itemStyle = null;
+        if (item.list && item.list.length !== 0) {
+            //非子节点
+            itemStyle = {
+                borderColor: '#5EFCE8',//描边颜色
+                color: bgcolor,//所节点圆颜色，配合上面
+            };
+        } 
+        else {
+            //子节点
+            itemStyle = {
+                color: '#fff',//最小圆
+                borderColor: '#ccc',
+                
+            };
+        }
+        
+        //实现节点发光效果
+        itemStyle = Object.assign(itemStyle, {
+            shadowColor: 'rgba(30, 148, 245, 1)',
+            shadowBlur: 20,
+        });
+        
+        if (idx == 1) {
+            category = item.name;
+        }
+        let obj = {
+            name: item.name,
+            symbolSize: symbolSize,
+            category: category,
+            label,
+            color: bgcolor,
+            itemStyle,
+        };
+        obj = Object.assign(item, obj);
+        list.push(obj);
+        if (item.list && item.list.length > 0) {
+            handleList(item.list, idx + 1, color, category);
+        }
+    });
+}
+
+// 计算links
+function handleLinks(arr, index) {
+    arr.forEach((item) => {
+        if (item.list) {
+            item.list.forEach((item2, eq) => {
+                let lineStyle = null;
+                if (index === 0) {
+                    //一级二级中间节点的线
+                    lineStyle = {
+                        normal: {
+                            color: 'source', //线
+                            width: 2,
+                        },
+                    };
+                } 
+                else {
+                    lineStyle = {
+                        normal: {
+                            color: 'target', //线
+                            width: 0.8,
+                        },
+                    };
+                }
+                let obj = {
+                    source: item.name,
+                    target: item2.name,
+                    value: 1111, //连接线上文字
+                    lineStyle,
+                };
+                links.push(obj);
+                if (item2.list && item.list.length > 0) {
+                    handleLinks(item.list, index + 1);
+                }
+            });
+        }
+    });
+}
+
+option = {
+    backgroundColor: {
+      type: 'radial',
+      x: 0.5,
+      y: 0.5,
+      r: 0.8,
+      colorStops: [{
+      offset: 0, color: '#07308D' // 0% 处的颜色
+    }, {
+      offset: 1, color: '#010B20' // 100% 处的颜色
+    }],
+      global: false // 缺省为 false
+    },
+    //提示框组件
+    tooltip: {},
+    toolbox: {
+        show: true,
+        left: 'right',
+        right: 20,
+        top: 'bottom',
+        bottom: 20,
+    },
+    //图例组件展现了不同系列的标记(symbol)，颜色和名字。可以通过点击图例控制哪些系列不显示。
+    legend: {
+        show: true,
+        data: legend,
+        textStyle: {
+            color: '#fff',
+            fontSize: 10,
+        },
+        // inactiveColor: "#fff",
+        icon: 'circle',
+        type: 'scroll',
+        orient: 'vertical',
+        left: 'right',
+        right: 20,
+        top: 20,
+        bottom: 80,
+        // itemWidth: 12,
+        // itemHeight: 12,
+        pageIconColor: '#00f6ff',
+        pageIconInactiveColor: '#fff',
+        pageIconSize: 12,
+        pageTextStyle: {
+            color: '#fff',
+            fontSize: 12,
+        },
+    },
+    selectedMode: 'false',
+    bottom: 20,
+    left: 0,
+    right: 0,
+    confine: true,
+    top: 0,
+    
+    animation: true,
+    animationDuration: 1500,//初始动画的时长，支持回调函数
+    animationEasingUpdate: 'quinticInOut',//数据更新动画的缓动效果
+
+    series: [
+        {
+            name: '用电能耗',
+            type: 'graph',
+            hoverAnimation: true,
+            // symbolSize:function(arg){
+            //     console.log(arg)
+            //     return 40
+            // },
+            layout: 'force',//图的布局
+            force: {
+                repulsion: [10, 80], //节点之间的斥力因子。支持数组表达斥力范围，值越大斥力越大。
+                gravity: 0.03, //节点受到的向中心的引力因子。该值越大节点越往中心点靠拢。
+                edgeLength: [20, 100], //边的两个节点之间的距离，这个距离也会受 repulsion:[10, 50]值越小则长度越长
+                layoutAnimation: true,//是否显示布局的迭代动画
+                friction: 0.5//这个参数能减缓节点的移动速度。取值范围 0 到 1。
+            },
+            nodeScaleRatio: 0.6,
+            draggable: true,              
+            data: list,
+            links: links,
+            categories: categories,
+            cursor: 'pointer',
+            focusNodeAdjacency: true,
+            roam: true, //是否开启鼠标缩放和平移漫游。
+            scaleLimit: {
+                //所属组件的z分层，z值小的图形会被z值大的图形覆盖
+                min: 0, //最小的缩放值
+                max: 9, //最大的缩放值
+            },
+          
+            symbol: 'circle',//标记的图形(总):'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow', 'none'
+            //symbolSize: 2,//节点标记的大小
+            showAllSymbol: true,
+            edgeSymbol: ['circle', 'arrow'],//边两端的标记类型，可以是一个数组分别指定两端，也可以是单个统一指定。
+            edgeSymbolSize: [10,2],
+                   
+            label: {
+                normal: {
+                    show: true,
+                    position: 'inside',
+                    color: '#fff',
+                    //distance: 10,
+                    labelLayout: {
+                       hideOverlap: true
+                    },
+                },
+            },
+
+            //图形样式(线条颜色)
+            itemStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [
+                        {
+                            offset: 0,
+                            color: '#FF5F69',//pink:4AEDE5
+                        },
+                        {
+                            offset: 1,
+                            color: '#4262FE',
+                        },
+                    ]),
+                    borderColor: "#1904E5",
+                    shadowBlur: 7,
+                    shadowColor: "rgba(247, 35, 28, 1)"
+            },
+            
+            //线条样式
+            lineStyle: {
+                normal: {
+                    color: 'source',
+                    width: 0.1,
+                    curveness: 0.1,
+                    type: 'solid',
+                },
+            },
+            //区域填充样式。设置后显示成区域面积图。
+            areaStyle: {
+                color: "rgba(213, 236, 252, 1)"
+            }
+        },
+    ],
+};
+  
+if(option){
+myChart.setOption(option);
+}
+    </script>
+</body>
+</html>
